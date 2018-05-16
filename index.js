@@ -26,7 +26,7 @@ module.exports = (config, outPath) => {
 
     fs.mkdirSync('./temp', 0777)
     fs.mkdirSync('./temp/pages', 0777)
-    
+
     execSync('cp -r images style temp', { cwd: __dirname })
 
     fs.writeFileSync('./temp/toc.ncx', ncxTemplate(config.name, config.chapters))
@@ -38,4 +38,6 @@ module.exports = (config, outPath) => {
 
         fs.writeFileSync(`./temp/pages/page-${index}.html`, pageTemplate(item.title, item.content))
     }
+
+    // execSync('rm -rf temp', { cwd: __dirname })
 }
