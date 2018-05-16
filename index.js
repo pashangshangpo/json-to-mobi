@@ -19,7 +19,7 @@ const appPath = __dirname
 module.exports = (config, outPath) => {
     config = {
         name: '',
-        lang: 'zh',
+        lang: 'en',
         author: 'pashangshangpo',
         publisher: 'Pashangshangpo & Co.',
         date: new Date().getFullYear(),

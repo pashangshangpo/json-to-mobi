@@ -14,7 +14,7 @@ module.exports = (title, content) => {
         <!doctype html>
         <html lang="en">
         <head>
-            <meta charset="utf-8" />
+            <meta charset="UTF-8" />
             <title>${title}</title>
             <link rel="stylesheet" href="../style/global.css" type="text/css" />
             <link rel="stylesheet" href="../style/page.css" type="text/css" />
