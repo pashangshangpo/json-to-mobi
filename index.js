@@ -44,7 +44,7 @@ module.exports = (config, outPath) => {
         fs.writeFileSync(`./temp/pages/page-${index}.html`, pageTemplate(item.title, item.content))
     }
 
-    execSync(`lib/kindlegen ${userPath}/temp/${config.name}`, { cwd: __dirname })
+    execSync(`lib/kindlegen ${userPath}/temp/${config.name}.opf`, { cwd: __dirname })
 
     // execSync('rm -rf temp', { cwd: __dirname })
 }
