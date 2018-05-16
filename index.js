@@ -9,7 +9,7 @@ module.exports = (config, outPath) => {
         title: '',
         author: 'pashangshangpo',
         publisher: 'Pashangshangpo & Co.',
-        cover: './images/cover.png',
+        cover: 'images/cover.png',
         ...config
     }
 }
