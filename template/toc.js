@@ -28,7 +28,7 @@ module.exports = navList => {
                     return `
                     <li><a href="pages/page-${index}">${item.title}</a></li>
                     `
-                })}
+                }).join('').trim()}
             </ul>
         </div>
         <div class="pagebreak"></div>
