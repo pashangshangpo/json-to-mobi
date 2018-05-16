@@ -2,7 +2,7 @@ const jsonToMobi = require('./index')
 
 jsonToMobi(
     {
-        name: 'fs 模块',
+        name: 'fs模块',
         chapters: [
             {
                 title: 'readFile()，readFileSync()',

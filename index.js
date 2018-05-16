@@ -6,7 +6,7 @@
 
 const fs = require('fs')
 const { resolve } = require('path')
-const { execSync } = require('child_process')
+const { execSync, spawn } = require('child_process')
 
 const ncxTemplate = require('./template/ncx')
 const opfTemplate = require('./template/opf')
@@ -44,7 +44,7 @@ module.exports = (config, outPath) => {
         fs.writeFileSync(`./temp/pages/page-${index}.html`, pageTemplate(item.title, item.content))
     }
 
-    execSync(`lib/kindlegen ${userPath}/temp/${config.name}.opf`, { cwd: __dirname })
+    spawn('./lib/kindlegen', [`${userPath}/temp/${config.name}.opf`], { cwd: __dirname })
 
     // execSync('rm -rf temp', { cwd: __dirname })
 }
