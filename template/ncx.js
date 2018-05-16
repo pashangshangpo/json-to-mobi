@@ -28,7 +28,7 @@ module.exports = (name, navList) => {
     <navMap>
         <navPoint id="navpoint-1" playOrder="1">
             <navLabel>
-                <text xmlns:ns="http://www.daisy.org/z3986/2005/ncx/">Cover</text>
+                <text xmlns:ns="http://www.daisy.org/z3986/2005/ncx/">${name}</text>
             </navLabel>
             <content src="cover.html"/>
         </navPoint>
