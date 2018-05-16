@@ -33,6 +33,6 @@ module.exports = (config, outPath) => {
     for (let index of Object.keys(config.chapters)) {
         const item = config.chapters[index]
 
-        fs.writeFile(`./temp/pages/page-${index}`, pageTemplate(item.title, item.content))
+        fs.writeFileSync(`./temp/pages/page-${index}.html`, pageTemplate(item.title, item.content))
     }
 }
