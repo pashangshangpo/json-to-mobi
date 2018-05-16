@@ -11,17 +11,18 @@
  */
 module.exports = (title, content) => {
     return `
-<?xml version='1.0' encoding='utf-8'?>    
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>${title}</title>
-        <link rel="stylesheet" href="../style/global.css" type="text/css"/>
-        <link rel="stylesheet" href="../style/page.css" type="text/css"/>
-    </head>
-    <body>
-      <div id="page">${content}</div>
-    </body>
-</html>
+        <!doctype html>
+        <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <title>${title}</title>
+            <link rel="stylesheet" href="../style/global.css" type="text/css" />
+            <link rel="stylesheet" href="../style/page.css" type="text/css" />
+        </head>
+        <body>
+            <div id="page">${content}</div>
+            <div class="pagebreak"></div>
+        </body>
+        </html>
     `
 }
