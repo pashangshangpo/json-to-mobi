@@ -17,8 +17,8 @@ module.exports = navList => {
     <head>
         <meta charset="utf-8" />
         <title>封面</title>
-        <link rel="stylesheet" href="../style/global.css" type="text/css" />
-        <link rel="stylesheet" href="../style/page.css" type="text/css" />
+        <link rel="stylesheet" href="style/global.css" type="text/css" />
+        <link rel="stylesheet" href="style/page.css" type="text/css" />
     </head>
     <body>
         <div id="toc">
