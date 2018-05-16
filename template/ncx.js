@@ -24,7 +24,7 @@ module.exports = (name, navList) => {
     <navMap>
         <navPoint id="toc" playOrder="1">
             <navLabel>
-                <text>${name}</text>
+                <text>目录</text>
             </navLabel>
             <content src="toc.html"/>
         </navPoint>
