@@ -5,24 +5,34 @@
  */
 
 /**
- * .def: coverPath => string
- *   name: String 名称
- *   coverPath: String cover路径
+ * .def: toc: navList => string
+ *   navList: Array [Item] 导航列表
+ *     Item: Object
+ *       title: String 标题
  */
-module.exports = (name, coverPath) => {
+module.exports = navList => {
     return `
-<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>封面</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head>
-<body>
-    <div>
-        <h2>${name}</h2>
-        ${coverPath ? `<img src="${coverPath}" alt="Comic Book Images"/>`: ''}
-    </div>
-</body>
-</html>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>封面</title>
+        <link rel="stylesheet" href="../style/global.css" type="text/css" />
+        <link rel="stylesheet" href="../style/page.css" type="text/css" />
+    </head>
+    <body>
+        <div id="toc">
+            <h2>目录</h2>
+            <ul>
+                ${navList.map((item, index) => {
+                    return `
+                    <li><a href="pages/page-${index}">${item.title}</a></li>
+                    `
+                })}
+            </ul>
+        </div>
+        <div class="pagebreak"></div>
+    </body>
+    </html>
     `
 }
