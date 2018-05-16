@@ -34,7 +34,7 @@ module.exports = (config, outPath) => {
     execSync(`cp -r images style ${userPath}/temp`, { cwd: __dirname })
 
     fs.writeFileSync('./temp/toc.ncx', ncxTemplate(config.name, config.chapters))
-    fs.writeFileSync('./temp/content.opf', opfTemplate(config, config.chapters))
+    fs.writeFileSync(`./temp/${config.name}.opf`, opfTemplate(config, config.chapters))
     fs.writeFileSync('./temp/toc.html', tocTemplate(config.chapters))
     fs.writeFileSync('./temp/pages/page-end.html', pageTemplate('全书完', ''))
 
