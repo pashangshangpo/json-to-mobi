@@ -9,6 +9,7 @@ module.exports = (config, outPath) => {
         title: '',
         author: 'pashangshangpo',
         publisher: 'Pashangshangpo & Co.',
+        date: new Date().getFullYear(),
         cover: 'images/cover.png',
         ...config
     }
