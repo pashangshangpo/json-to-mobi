@@ -5,12 +5,16 @@
  */
 
 const fs = require('fs')
+const { resolve } = require('path')
 const { execSync } = require('child_process')
 
 const ncxTemplate = require('./template/ncx')
 const opfTemplate = require('./template/opf')
 const coverTemplate = require('./template/cover')
 const pageTemplate = require('./template/page')
+
+const userPath = resolve('.')
+const appPath = __dirname
 
 module.exports = (config, outPath) => {
     config = {
@@ -27,7 +31,7 @@ module.exports = (config, outPath) => {
     fs.mkdirSync('./temp', 0777)
     fs.mkdirSync('./temp/pages', 0777)
 
-    execSync('cp -r images style temp', { cwd: __dirname })
+    execSync(`cp -r images style ${userPath}/temp`, { cwd: __dirname })
 
     fs.writeFileSync('./temp/toc.ncx', ncxTemplate(config.name, config.chapters))
     fs.writeFileSync('./temp/content.opf', opfTemplate(config, config.chapters))
