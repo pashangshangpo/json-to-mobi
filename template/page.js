@@ -15,12 +15,12 @@ module.exports = (title, content) => {
         <!doctype html>
         <html lang="en">
         <head>
-            <meta charset="UTF-8" />
-            <title>${title}</title>
             <link rel="stylesheet" href="../style/global.css" type="text/css" />
             <link rel="stylesheet" href="../style/page.css" type="text/css" />
         </head>
         <body>
+            <h2>${title}</h2>
+            <div class="pagebreak"></div>
             <div id="page">${content}</div>
             <div class="pagebreak"></div>
         </body>

@@ -40,6 +40,7 @@ module.exports = (config, chapters) => {
                 <item id="page-${index}" href="pages/page-${index}.html" media-type="application/xhtml+xml"/>
             `
         }).join('').trim()}
+        <item id="page-end" href="pages/page-end.html" media-type="application/xhtml+xml"/>
     </manifest>
     <spine toc="ncx">
         <itemref idref="toc"/>
@@ -48,6 +49,7 @@ module.exports = (config, chapters) => {
              <itemref idref="page-${index}"/>
             `
         }).join('').trim()}
+        <itemref idref="page-end"/>
     </spine>
     <guide>
         <reference type="toc" title="目录" href="toc.html"/>

@@ -36,6 +36,7 @@ module.exports = (config, outPath) => {
     fs.writeFileSync('./temp/toc.ncx', ncxTemplate(config.name, config.chapters))
     fs.writeFileSync('./temp/content.opf', opfTemplate(config, config.chapters))
     fs.writeFileSync('./temp/toc.html', tocTemplate(config.chapters))
+    fs.writeFileSync('./temp/pages/page-end.html', pageTemplate('全书完', ''))
 
     for (let index of Object.keys(config.chapters)) {
         const item = config.chapters[index]
