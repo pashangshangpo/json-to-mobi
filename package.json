@@ -1,0 +1,7 @@
+{
+  "name": "jsonToMobi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pashangshangpo/jsonToMobi.git",
+  "license": "MIT"
+}
