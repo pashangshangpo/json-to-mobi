@@ -5,6 +5,7 @@
  */
 
 const ncxTemplate = require('./template/ncx')
+const opfTemplate = require('./template/opf')
 
 module.exports = (config, outPath) => {
     config = {
