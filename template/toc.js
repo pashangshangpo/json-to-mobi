@@ -26,7 +26,7 @@ module.exports = navList => {
             <ul>
                 ${navList.map((item, index) => {
                     return `
-                    <li><a href="pages/page-${index}">${item.title}</a></li>
+                    <li><a href="pages/page-${index}.html">${item.title}</a></li>
                     `
                 }).join('').trim()}
             </ul>
