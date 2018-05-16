@@ -28,7 +28,7 @@ module.exports = (config, chapters) => {
     </metadata>
     <manifest>
         <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
-        <item id="stylesheet" href="style.css" media-type="text/css"/>
+        <item id="stylesheet" href="style/global.css" media-type="text/css"/>
         <item id="cover" href="cover.html" media-type="application/xhtml+xml"/>
         ${chapters.map((item, index) => {
             return `
