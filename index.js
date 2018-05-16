@@ -4,6 +4,8 @@
  * @createTime 2018年5月16日 上午9:47:07
  */
 
+const ncxTemplate = require('./template/ncx')
+
 module.exports = (config, outPath) => {
     config = {
         title: '',
