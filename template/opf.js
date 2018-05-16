@@ -51,10 +51,6 @@ module.exports = (config, chapters) => {
         }).join('').trim()}
         <itemref idref="page-end"/>
     </spine>
-    <guide>
-        <reference type="toc" title="目录" href="toc.html"/>
-        <reference type="text" title="首页" href="pages/page-0.html"/>
-    </guide>
 </package>
     `
 }
