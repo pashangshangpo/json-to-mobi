@@ -4,6 +4,17 @@
  * @createTime 2018年5月16日 上午11:02:04
  */
 
+/**
+ * .def: config, chapters => string
+ *   config: Object 配置信息
+ *     name: String 书名
+ *     lang: String 语言
+ *     author: String 作者
+ *     publisher: String 出版者
+ *     date: String 出版时间
+ *     cover: String 封面图片路径
+ *   chapters: Array 章节
+ */
 module.exports = (config, chapters) => {
     return `
 <?xml version="1.0" encoding="UTF-8"?>
