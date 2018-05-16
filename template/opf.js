@@ -40,7 +40,7 @@ module.exports = (config, chapters) => {
     <manifest>
         <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
         <item id="stylesheet" href="style/global.css" media-type="text/css"/>
-        <item id="cover" href="cover.html" media-type="application/xhtml+xml"/>
+        <item id="cover" href="toc.html" media-type="application/xhtml+xml"/>
         ${chapters.map((item, index) => {
             return `
                 <item id="page-${index}" href="pages/page-${index}.html" media-type="application/xhtml+xml"/>

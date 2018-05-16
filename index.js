@@ -10,7 +10,7 @@ const { execSync } = require('child_process')
 
 const ncxTemplate = require('./template/ncx')
 const opfTemplate = require('./template/opf')
-const coverTemplate = require('./template/cover')
+const tocTemplate = require('./template/toc')
 const pageTemplate = require('./template/page')
 
 const userPath = resolve('.')
@@ -35,7 +35,7 @@ module.exports = (config, outPath) => {
 
     fs.writeFileSync('./temp/toc.ncx', ncxTemplate(config.name, config.chapters))
     fs.writeFileSync('./temp/content.opf', opfTemplate(config, config.chapters))
-    fs.writeFileSync('./temp/cover.html', coverTemplate(config.name, config.cover))
+    fs.writeFileSync('./temp/toc.html', coverTemplate(config.name, config.cover))
 
     for (let index of Object.keys(config.chapters)) {
         const item = config.chapters[index]
