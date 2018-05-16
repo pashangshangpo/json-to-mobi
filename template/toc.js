@@ -1,5 +1,5 @@
 /**
- * @file cover模板
+ * @file toc模板
  * @author pashangshangpo
  * @createTime 2018年5月16日 下午12:30:36
  */
