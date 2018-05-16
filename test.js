@@ -14,5 +14,5 @@ jsonToMobi(
             }
         ]
     },
-    '/Users/v_xiaozhihua/Desktop'
+    __dirname
 )
