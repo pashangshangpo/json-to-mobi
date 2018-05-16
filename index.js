@@ -8,7 +8,8 @@ const ncxTemplate = require('./template/ncx')
 
 module.exports = (config, outPath) => {
     config = {
-        title: '',
+        name: '',
+        lang: 'zh',
         author: 'pashangshangpo',
         publisher: 'Pashangshangpo & Co.',
         date: new Date().getFullYear(),
