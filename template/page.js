@@ -20,7 +20,6 @@ module.exports = (title, content) => {
         </head>
         <body>
             <h2>${title}</h2>
-            <div class="pagebreak"></div>
             <div id="page">${content}</div>
             <div class="pagebreak"></div>
         </body>
