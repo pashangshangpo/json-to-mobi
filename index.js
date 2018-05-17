@@ -5,8 +5,9 @@
  */
 
 const fs = require('fs')
-const { resolve } = require('path')
+const { resolve, basename } = require('path')
 const { execSync, spawnSync } = require('child_process')
+const downImage = require('./common/downImage')
 
 const ncxTemplate = require('./template/ncx')
 const opfTemplate = require('./template/opf')
@@ -39,6 +40,19 @@ const toMobi = (config, outPath) => {
     execSync(`cp -r ${userPath}/temp/${config.name}.mobi ${outPath}`, { cwd: userPath})
 }
 
+const processImages = async chapters => {
+    for (let chapter of chapters) {
+        if (chapter.imgs) {
+            for (let imgUrl of chapter.imgs) {
+                await downImage(imgUrl, './temp/images')
+                chapter.content = chapter.content.replace(imgUrl, `../images/${basename(imgUrl)}`)
+            }
+        }
+    }
+
+    return chapters
+}
+
 module.exports = (config, outPath) => {
     config = {
         name: '',
@@ -51,8 +65,12 @@ module.exports = (config, outPath) => {
         ...config
     }
 
-    newBook(config)
-    toMobi(config, outPath)
-    
-    execSync('rm -rf temp', { cwd: userPath })
+    processImages(config.chapters).then(chapters => {
+        config.chapters = chapters
+
+        newBook(config)
+        toMobi(config, outPath)
+
+        execSync('rm -rf temp', { cwd: userPath })
+    })
 }
