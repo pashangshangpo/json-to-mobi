@@ -8,15 +8,20 @@ h1 {
 }
 
 h2 {
-    margin: 2em 0 1em;
+    margin: 1em 0;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 1.5em;
 }
 
 h3 {
-    margin: 0 0 2em;
+    margin: 0 0 1em;
     font-weight: normal;
     text-align:center;
-    font-size: 1.5em;
+    font-size: 1em;
     font-style: italic;
+}
+
+img {
+    display: block;
+    padding: 1em 0;
 }
