@@ -16,18 +16,7 @@ const pageTemplate = require('./template/page')
 const userPath = resolve('.')
 const appPath = __dirname
 
-module.exports = (config, outPath) => {
-    config = {
-        name: '',
-        lang: 'en',
-        author: 'pashangshangpo',
-        publisher: 'Pashangshangpo & Co.',
-        date: new Date().getFullYear(),
-        cover: 'images/cover.png',
-        chapters: [],
-        ...config
-    }
-
+const newBook = config => {
     fs.mkdirSync('./temp', 0777)
     fs.mkdirSync('./temp/pages', 0777)
 
@@ -43,8 +32,27 @@ module.exports = (config, outPath) => {
 
         fs.writeFileSync(`./temp/pages/page-${index}.html`, pageTemplate(item.title, item.content))
     }
+}
 
+const toMobi = (config, outPath) => {
     spawnSync('./lib/kindlegen', [`${userPath}/temp/${config.name}.opf`], { cwd: __dirname })
     execSync(`cp -r ${userPath}/temp/${config.name}.mobi ${outPath}`, { cwd: userPath})
+}
+
+module.exports = (config, outPath) => {
+    config = {
+        name: '',
+        lang: 'en',
+        author: 'pashangshangpo',
+        publisher: 'Pashangshangpo & Co.',
+        date: new Date().getFullYear(),
+        cover: 'images/cover.png',
+        chapters: [],
+        ...config
+    }
+
+    newBook(config)
+    toMobi(config, outPath)
+    
     execSync('rm -rf temp', { cwd: userPath })
 }
