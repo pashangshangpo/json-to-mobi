@@ -18,11 +18,6 @@ const userPath = resolve('.')
 const appPath = __dirname
 
 const newBook = config => {
-    fs.mkdirSync('./temp', 0777)
-    fs.mkdirSync('./temp/pages', 0777)
-
-    execSync(`cp -r images style ${userPath}/temp`, { cwd: __dirname })
-
     fs.writeFileSync('./temp/toc.ncx', ncxTemplate(config.name, config.chapters))
     fs.writeFileSync(`./temp/${config.name}.opf`, opfTemplate(config, config.chapters))
     fs.writeFileSync('./temp/toc.html', tocTemplate(config.chapters))
@@ -44,7 +39,7 @@ const processImages = async chapters => {
     for (let chapter of chapters) {
         if (chapter.imgs) {
             for (let imgUrl of chapter.imgs) {
-                await downImage(imgUrl, './temp/images')
+                await downImage(imgUrl, `${userPath}/temp/images`)
                 chapter.content = chapter.content.replace(imgUrl, `../images/${basename(imgUrl)}`)
             }
         }
@@ -64,6 +59,10 @@ module.exports = (config, outPath) => {
         chapters: [],
         ...config
     }
+
+    fs.mkdirSync('./temp', 0777)
+    fs.mkdirSync('./temp/pages', 0777)
+    execSync(`cp -r images style ${userPath}/temp`, { cwd: __dirname })
 
     processImages(config.chapters).then(chapters => {
         config.chapters = chapters
