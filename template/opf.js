@@ -21,13 +21,14 @@ module.exports = (config, chapters) => {
 <package xmlns:xx="http://saxon.sf.net/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/metadata/dublin_core" unique-identifier="BookId" version="2.0">
     <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
         <dc-metadata xmlns:dc="http://purl.org/metadata/dublin_core" xmlns:oebpackage="http://openbook.org/namespaces/oeb-package/1.0/"> 
-            <dc:title>${config.name}</dc:title>
-            <dc:language>${config.lang}</dc:language>
-            <dc:creator>${config.author}</dc:creator>
-            <dc:publisher>${config.publisher}</dc:publisher>
-            <dc:date>${config.date}</dc:date>
+            <dc:Title>${config.name}</dc:Title>
+            <dc:Language>${config.lang}</dc:Language>
+            <dc:Creator>${config.author}</dc:Creator>
+            <dc:Publisher>${config.publisher}</dc:Publisher>
+            <dc:Date>${config.date}</dc:Date>
         </dc-metadata>
         <x-metadata>
+            <output encoding="utf-8" />
             <EmbeddedCover>${config.cover}</EmbeddedCover>
         </x-metadata>
     </metadata>
