@@ -44,7 +44,9 @@ const processImages = async chapters => {
                 
                 if (!fs.existsSync(`${outImageDir}/${fileName}`)) {
                     console.log('正在下载: ', fileName)
-                    await downFile(imgUrl, outImageDir)
+                    await downFile(imgUrl, outImageDir).catch(err => {
+                        console.log(err)
+                    })
                 }
                 
                 chapter.content = chapter.content.replace(imgUrl, `../images/${fileName}`)
