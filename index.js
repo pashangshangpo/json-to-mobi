@@ -55,7 +55,7 @@ module.exports = (config, outPath) => {
         author: 'pashangshangpo',
         publisher: 'Pashangshangpo & Co.',
         date: new Date().getFullYear(),
-        cover: 'images/cover.png',
+        cover: '',
         chapters: [],
         ...config
     }

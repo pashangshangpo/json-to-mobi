@@ -27,10 +27,16 @@ module.exports = (config, chapters) => {
             <dc:Publisher>${config.publisher}</dc:Publisher>
             <dc:Date>${config.date}</dc:Date>
         </dc-metadata>
-        <x-metadata>
-            <output encoding="utf-8" />
-            <EmbeddedCover>${config.cover}</EmbeddedCover>
-        </x-metadata>
+        ${
+            config.cover
+            ? `
+            <x-metadata>
+                <output encoding="utf-8" />
+                <EmbeddedCover>${config.cover}</EmbeddedCover>
+            </x-metadata>
+            `
+            : ''
+        }
     </metadata>
     <manifest>
         <item id="stylesheet" href="style/global.css" media-type="text/css"/>
