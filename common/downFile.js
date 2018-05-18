@@ -1,5 +1,5 @@
 /**
- * @file 下载图片
+ * @file 下载文件
  * @author pashangshangpo
  * @createTime 2018年5月17日 下午3:23:10
  */

@@ -7,7 +7,7 @@
 const fs = require('fs')
 const { resolve, basename } = require('path')
 const { execSync, spawnSync } = require('child_process')
-const downImage = require('./common/downImage')
+const downFile = require('./common/downFile')
 
 const ncxTemplate = require('./template/ncx')
 const opfTemplate = require('./template/opf')
@@ -39,7 +39,7 @@ const processImages = async chapters => {
     for (let chapter of chapters) {
         if (chapter.imgs) {
             for (let imgUrl of chapter.imgs) {
-                await downImage(imgUrl, `${userPath}/temp/images`)
+                await downFile(imgUrl, `${userPath}/temp/images`)
                 chapter.content = chapter.content.replace(imgUrl, `../images/${basename(imgUrl)}`)
             }
         }
