@@ -16,16 +16,29 @@ module.exports = (url, outDir) => {
     }
 
     return new Promise(resolve => {
-        type.get(url, res => {
+        let req = null
+        let requestTimer = setTimeout(() => {
+            req.abort()
+            resolve()
+        }, 5000)
+
+        req = type.get(url, res => {
+            clearTimeout(requestTimer)
+
+            let responseTimer = setTimeout(() => {
+                res.destroy()
+                resolve()
+            }, 60000)
+
             let data = ''
 
             res.setEncoding('binary')
-
             res.on('data', chunk => {
                 data += chunk
             })
-
             res.on('end', () => {
+                clearTimeout(responseTimer)
+
                 fs.writeFile(join(outDir, basename(url)), data, 'binary', err => {
                     if (err) {
                         throw err
@@ -35,6 +48,8 @@ module.exports = (url, outDir) => {
                     resolve()
                 })
             })
+        }).on('error', () => {
+            clearTimeout(requestTimer)
         })
     })
 }
