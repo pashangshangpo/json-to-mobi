@@ -15,19 +15,19 @@ module.exports = (url, outDir) => {
         type = https
     }
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         let req = null
         let requestTimer = setTimeout(() => {
-            req.abort()
-            resolve()
+            reject()
+            req && req.abort()
         }, 5000)
 
         req = type.get(url, res => {
             clearTimeout(requestTimer)
 
             let responseTimer = setTimeout(() => {
+                reject()
                 res.destroy()
-                resolve()
             }, 60000)
 
             let data = ''
@@ -41,7 +41,7 @@ module.exports = (url, outDir) => {
 
                 fs.writeFile(join(outDir, basename(url)), data, 'binary', err => {
                     if (err) {
-                        throw err
+                        console.log(err)
                         return
                     }
                     
@@ -50,6 +50,7 @@ module.exports = (url, outDir) => {
             })
         }).on('error', () => {
             clearTimeout(requestTimer)
+            reject()
         })
     })
 }
