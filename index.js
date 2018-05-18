@@ -39,9 +39,15 @@ const processImages = async chapters => {
     for (let chapter of chapters) {
         if (chapter.imgs) {
             for (let imgUrl of chapter.imgs) {
-                console.log('正在下载: ', basename(imgUrl))
-                await downFile(imgUrl, `${userPath}/temp/images`)
-                chapter.content = chapter.content.replace(imgUrl, `../images/${basename(imgUrl)}`)
+                const outImageDir = `${userPath}/temp/images`
+                const fileName = basename(imgUrl)
+                
+                if (!fs.existsSync(`${outImageDir}/${fileName}`)) {
+                    console.log('正在下载: ', fileName)
+                    await downFile(imgUrl, outImageDir)
+                }
+                
+                chapter.content = chapter.content.replace(imgUrl, `../images/${fileName}`)
             }
         }
     }
