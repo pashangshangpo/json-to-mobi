@@ -39,6 +39,7 @@ const processImages = async chapters => {
     for (let chapter of chapters) {
         if (chapter.imgs) {
             for (let imgUrl of chapter.imgs) {
+                console.log('正在下载: ', basename(imgUrl))
                 await downFile(imgUrl, `${userPath}/temp/images`)
                 chapter.content = chapter.content.replace(imgUrl, `../images/${basename(imgUrl)}`)
             }
