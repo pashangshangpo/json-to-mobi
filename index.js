@@ -58,7 +58,20 @@ const processImages = async chapters => {
 }
 
 /**
- * .def: (config, outputDir)
+ * .def: (config, outputDir) => undefined
+ *   config: Object
+ *     name: String 书名
+ *     lang: String 语言 默认en
+ *     author: String 作者 默认pashangshangpo
+ *     publisher: String 版权 默认Pashangshangpo & Co.
+ *     date: String 时间 默认今年
+ *     cover: String 封面图片路径
+ *     chapters: Array [Item] 章节
+ *       Item: Ojbect
+ *         title: String 标题
+ *         content: String html内容
+ *         imgs: Array 内容中的所有图片路径, 如果不写此项则不会去解析和下载content中的图片
+ *     outputDir: String 输出目录
  */
 module.exports = (config, outputDir) => {
     config = {
