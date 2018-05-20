@@ -30,9 +30,9 @@ const newBook = config => {
     }
 }
 
-const toMobi = (config, outPath) => {
+const toMobi = (config, outputDir) => {
     spawnSync('./lib/kindlegen', [`${userPath}/temp/${config.name}.opf`], { cwd: __dirname })
-    execSync(`cp -r ${userPath}/temp/${config.name}.mobi ${outPath}`, { cwd: userPath})
+    execSync(`cp -r ${userPath}/temp/${config.name}.mobi ${outputDir}`, { cwd: userPath})
 }
 
 const processImages = async chapters => {
@@ -57,7 +57,10 @@ const processImages = async chapters => {
     return chapters
 }
 
-module.exports = (config, outPath) => {
+/**
+ * .def: (config, outputDir)
+ */
+module.exports = (config, outputDir) => {
     config = {
         name: '',
         lang: 'en',
@@ -77,7 +80,7 @@ module.exports = (config, outPath) => {
         config.chapters = chapters
 
         newBook(config)
-        toMobi(config, outPath)
+        toMobi(config, outputDir)
 
         execSync('rm -rf temp', { cwd: userPath })
     })
